@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #f1f1f1; /* 背景色：薄いグレー */
+            /* Notionのデフォルト背景に馴染む色 */
+            background-color: #f1f1f1; 
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             display: flex;
             justify-content: center;
@@ -25,13 +26,13 @@
             line-height: 1.6;
             font-weight: 500;
             margin-bottom: 8px;
-            white-space: pre-wrap; /* 改行を反映させる */
+            white-space: pre-wrap;
         }
         .sub-text {
             font-size: 0.85rem;
             color: #666;
             font-style: italic;
-            white-space: pre-wrap; /* 和訳側の改行も反映させる */
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -42,7 +43,6 @@
     </div>
 
     <script>
-        // 文字列を囲む記号を `（バッククォート）に変更しました
         const myData = [
             { 
                 content: `お腹が空いていることと、寝起きする場所でくつろげないことは、だめです。
@@ -56,18 +56,16 @@
             },
             { 
                 content: `Without a nickel to my name
-            Hopped a bus, here I came.
-            Could be brave or just insane
-            We'll have to see.`, 
+Hopped a bus, here I came.
+Could be brave or just insane
+We'll have to see.`, 
                 description: `私の名前は5セントの価値もない。バスに飛び乗ってやってきた。
-                勇敢なのか馬鹿なのか　そのうち分かるわ。` 
+勇敢なのか馬鹿なのか　そのうち分かるわ。` 
             }
         ];
 
-        // ランダムに1つ選ぶ
         const picked = myData[Math.floor(Math.random() * myData.length)];
         
-        // 画面に表示
         if (picked) {
             document.getElementById('display-content').innerText = picked.content;
             document.getElementById('display-description').innerText = picked.description;
