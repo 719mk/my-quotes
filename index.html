@@ -5,56 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #f1f1f1; /* 記事のような薄いグレー */
+            background-color: #f1f1f1; /* 背景色：薄いグレー */
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 0 20px;
             overflow: hidden;
         }
         .container {
             text-align: center;
-            padding: 20px;
-            max-width: 80%;
+            max-width: 600px;
         }
-        .quote {
+        .main-text {
             font-size: 1.1rem;
             color: #333;
             line-height: 1.6;
             font-weight: 500;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            white-space: pre-wrap; /* 改行を反映させる設定 */
         }
-        .author {
-            font-size: 0.8rem;
+        .sub-text {
+            font-size: 0.85rem;
             color: #666;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="quote-display" class="quote">読み込み中...</div>
-        <div id="author-display" class="author"></div>
+        <div id="display-content" class="main-text">読み込み中...</div>
+        <div id="display-description" class="sub-text"></div>
     </div>
 
     <script>
-        // 【ここを自由に書き換えてください！】
-        const quotes = [
-            { text: "お腹が空いていることと、寝起きする場所でくつろげないことは、だめです。
-子どもも大人も関係なくどんな人にとっても。.", author: "『カフネ』" },
-            { text: "お腹が空いていることと、寝起きする場所でくつろげないことは、だめです。
-子どもも大人も関係なくどんな人にとっても。", author: "『カフネ』" },
-            { text: "迷ったら、ワクワクする方を選べ", author: "さやきち" },
-            { text: "シンプルであることは、究極の洗練だ", author: "レオナルド・ダ・ヴィンチ" }
+        // リストの中身を自由に増やせます
+        const myData = [
+            { 
+                content: "お腹が空いていることと、寝起きする場所でくつろげないことは、だめです。子どもも大人も関係なくどんな人にとっても。", 
+                description: "『カフネ』" 
+            },
+            { 
+                content: "おいしいって思うことが、楽しいって思うことが、うれしいって思うことが、生きていくためにどれだけ大事か、あなたこそよくわかってるんじゃないの。", 
+                description: "『カフネ』。" 
+            },
+            { 
+                content: "Without a nickel to my name　Hopped a bus, here I came. Could be brave or just insane　We'll have to see.", 
+                description: "私の名前は5セントの価値もない　バスに飛び乗ってやってきた。勇敢なのか馬鹿なのか　そのうち分かるわ。" 
+            }
         ];
 
         // ランダムに1つ選ぶ
-        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        const picked = myData[Math.floor(Math.random() * myData.length)];
         
         // 画面に表示
-        document.getElementById('quote-display').innerText = randomQuote.text;
-        document.getElementById('author-display').innerText = `— ${randomQuote.author}`;
+        document.getElementById('display-content').innerText = picked.content;
+        document.getElementById('display-description').innerText = picked.description;
     </script>
 </body>
 </html>
