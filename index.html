@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f1f1f1; /* 記事のような薄いグレー */
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+        .quote {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .author {
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="quote-display" class="quote">読み込み中...</div>
+        <div id="author-display" class="author"></div>
+    </div>
+
+    <script>
+        // 【ここを自由に書き換えてください！】
+        const quotes = [
+            { text: "Done is better than perfect.", author: "Mark Zuckerberg" },
+            { text: "あきらめたらそこで試合終了だよ", author: "安西先生" },
+            { text: "迷ったら、ワクワクする方を選べ", author: "さやきち" },
+            { text: "シンプルであることは、究極の洗練だ", author: "レオナルド・ダ・ヴィンチ" }
+        ];
+
+        // ランダムに1つ選ぶ
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        
+        // 画面に表示
+        document.getElementById('quote-display').innerText = randomQuote.text;
+        document.getElementById('author-display').innerText = `— ${randomQuote.author}`;
+    </script>
+</body>
+</html>
