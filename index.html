@@ -25,12 +25,13 @@
             line-height: 1.6;
             font-weight: 500;
             margin-bottom: 8px;
-            white-space: pre-wrap; /* 改行を反映させる設定 */
+            white-space: pre-wrap; /* 改行を反映させる */
         }
         .sub-text {
             font-size: 0.85rem;
             color: #666;
             font-style: italic;
+            white-space: pre-wrap; /* 和訳側の改行も反映させる */
         }
     </style>
 </head>
@@ -41,23 +42,25 @@
     </div>
 
     <script>
-        // リストの中身を自由に増やせます
+        // 文字列を囲む記号を `（バッククォート）に変更しました
         const myData = [
             { 
                 content: `お腹が空いていることと、寝起きする場所でくつろげないことは、だめです。
-                    子どもも大人も関係なくどんな人にとっても。`, 
-                description: "『カフネ』" 
+子どもも大人も関係なくどんな人にとっても。`, 
+                description: `『カフネ』` 
             },
             { 
                 content: `おいしいって思うことが、楽しいって思うことが、うれしいって思うことが、
-                    生きていくためにどれだけ大事か、あなたこそよくわかってるんじゃないの。`, 
-                description: "『カフネ』。" 
+生きていくためにどれだけ大事か、あなたこそよくわかってるんじゃないの。`, 
+                description: `『カフネ』。` 
             },
             { 
-                content: `Without a nickel to my name　Hopped a bus, here I came.
-                    Could be brave or just insane　We'll have to see.`, 
-                description: `私の名前は5セントの価値もない　バスに飛び乗ってやってきた。
-                    勇敢なのか馬鹿なのか　そのうち分かるわ。` 
+                content: `Without a nickel to my name
+            Hopped a bus, here I came.
+            Could be brave or just insane
+            We'll have to see.`, 
+                description: `私の名前は5セントの価値もない。バスに飛び乗ってやってきた。
+                勇敢なのか馬鹿なのか　そのうち分かるわ。` 
             }
         ];
 
@@ -65,8 +68,10 @@
         const picked = myData[Math.floor(Math.random() * myData.length)];
         
         // 画面に表示
-        document.getElementById('display-content').innerText = picked.content;
-        document.getElementById('display-description').innerText = picked.description;
+        if (picked) {
+            document.getElementById('display-content').innerText = picked.content;
+            document.getElementById('display-description').innerText = picked.description;
+        }
     </script>
 </body>
 </html>
